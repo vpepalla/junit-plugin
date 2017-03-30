@@ -1,18 +1,18 @@
 /*
  * The MIT License
- * 
+ *
  * Copyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Yahoo! Inc.
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -117,7 +117,7 @@ public class CaseResultTest {
 	assertNotNull("Error stacktrace should not be null", cr.getErrorStackTrace());
 
 	String testUrl = cr.getRelativePathFrom(tr);
-	
+
 	HtmlPage page = rule.createWebClient().goTo("job/render-test/1/testReport/" + testUrl);
 
 	HtmlElement errorMsg = (HtmlElement) page.getByXPath("//h3[text()='Error Message']/following-sibling::*").get(0);
@@ -128,7 +128,7 @@ public class CaseResultTest {
 	assertEquals(cr.annotate(cr.getErrorStackTrace()).replaceAll("&lt;", "<").replace("\r\n", "\n"),
 		     errorStackTrace.getTextContent());
     }
-    
+
     /**
      * Verify fields show up at the correct visibility in the remote API
      */
@@ -155,7 +155,7 @@ public class CaseResultTest {
         found = page.getByXPath(composeXPath(OTHER_FIELDS)).size();
         assertTrue("Should have found an element, but found " + found, found > 0);
     }
-    
+
     @Email("http://jenkins.361315.n4.nabble.com/Change-remote-API-visibility-for-CaseResult-getStdout-getStderr-td395102.html")
     @Test
     public void testRemoteApiNoDetails() throws Exception {
@@ -174,7 +174,7 @@ public class CaseResultTest {
         found = page.getByXPath(composeXPath(OTHER_FIELDS)).size();
         assertTrue("Should have found an element, but found " + found, found > 0);
    }
-    
+
     @Email("http://jenkins.361315.n4.nabble.com/Change-remote-API-visibility-for-CaseResult-getStdout-getStderr-td395102.html")
     @Test
     public void testRemoteApiNameOnly() throws Exception {
@@ -233,7 +233,7 @@ public class CaseResultTest {
 
         return tmp.toString();
     }
-    
+
     private void assertOutput(CaseResult cr, String in, String out) throws Exception {
         assertEquals(out, cr.annotate(in));
     }
