@@ -75,7 +75,7 @@ public class CaseResultTest {
         assertEquals(3,tr.getFailedTests().size());
         CaseResult cr = tr.getFailedTests().get(0);
         assertEquals("org.twia.vendor.VendorManagerTest",cr.getClassName());
-        assertEquals("testGetVendorFirmKeyForVendorRepWrong",cr.getName());
+        assertEquals("testGetVendorFirmKeyForVendorRep",cr.getName());
 
         // piggy back tests for annotate methods
         assertOutput(cr,"plain text", "plain text");
